@@ -1,0 +1,21 @@
+l = eval(input())
+def marble_game(a):
+    results = list()
+    for k in range(0,len(a)):
+        x = a[k]
+        sumx = 0
+        maxi = 0
+        select = 0
+        for i in range(0,len(x)):
+            if x[i] == "red":sumx = sumx+2
+            elif x[i] == "white":sumx = sumx+5
+            elif x[i] == "green":sumx = sumx+8
+            elif x[i] == "yellow":sumx = sumx+0
+            else:sumx = sumx+1
+        results.insert(k,sumx)
+    for j in range(0,len(results)):
+        if results[i]<results[i+1]:
+            maxi = results[i+1]
+            select = a[i+1]
+    return select,maxi
+print(marble_game(l))

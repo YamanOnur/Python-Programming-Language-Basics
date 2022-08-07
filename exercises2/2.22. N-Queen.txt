@@ -1,0 +1,45 @@
+board = eval(input())
+r = 0
+c = 0
+t = 0
+u = 0
+for i in range(0,len(board)):
+    c = 0
+    for j in range(0,len(board[i])):
+        if board[j][i] == "q":
+            c = c + 1
+    if c > 1:
+        print("No")
+        break
+    else:
+        u = u+1
+for i in range(0,len(board)):
+    c = 0
+    for j in range(0,len(board[i])):
+        if board[i][j] == "q":
+            c = c + 1
+    if c > 1:
+        print("No")
+        break
+    else:
+        t = t+1
+if t == len(board) and u == len(board[0]):
+    print("Yes")
+
+-------------------------------------------
+
+board = eval(input())
+c = 0
+t = 0
+for i in range(0,len(board)):
+    c = 0
+    for j in range(0,len(board[i])):
+        if board[i][j] == "q":
+            c = c + 1
+    if c > 1:
+        print("No")
+        break
+    else:
+        t = t+1
+if t == len(board):
+    print("Yes")

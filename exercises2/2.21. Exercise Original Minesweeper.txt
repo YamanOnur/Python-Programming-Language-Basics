@@ -1,0 +1,28 @@
+inp = eval(input())
+opt = list()
+c = 0
+for i in range(0,len(inp)):
+    opt.insert(i,inp[i])
+    for j in range(0,len(inp[i])):
+        if inp[i][j] == "m":
+            opt[i][j] = "m"
+        elif inp[i][j] == "_":
+            if i-1>=0 and inp[i-1][j]=="m":
+                c = c+1
+            if i-1>=0 and j-1>=0 and inp[i-1][j-1]=="m":
+                c = c+1
+            if i-1>=0 and j+1<len(inp[i]) and inp[i-1][j+1]=="m":
+                c = c+1
+            if i+1<len(inp) and inp[i+1][j]=="m":
+                c = c+1
+            if i+1<len(inp) and j-1>=0 and inp[i+1][j-1]=="m":
+                c = c+1
+            if i+1<len(inp) and j+1<len(inp[i]) and inp[i+1][j+1]=="m":
+                c = c+1
+            if j+1<len(inp[i]) and inp[i][j+1]=="m":
+                c = c+1
+            if j-1>=0 and inp[i][j-1]=="m":
+                c = c+1
+            opt[i][j] = c
+            c = 0
+print(opt)

@@ -1,0 +1,34 @@
+def getMin(x,y,z):
+    if x<=y and x<=z:
+        return x
+    elif y<=x and y<=z:
+        return y
+    elif z<=x and z<=x:
+        return z
+def getMax(x, y, z):
+    if x >= y and x >= z:
+        return x
+    elif y >= x and y >= z:
+        return y
+    elif z >= x and z >= x:
+        return z
+def getOrder(x,y,z):
+    i = 0
+    t = x,y,z
+    if x!=y and x!=y and y!=z:
+        while i < len(t):
+            if t[i] != getMin(x, y, z) and t[i] != getMax(x, y, z):
+                return (getMin(x, y, z), t[i], getMax(x, y, z))
+            i = i + 1
+    else:
+        return "You entered same numbers"
+a = int(input())
+b = int(input())
+c = int(input())
+print(getMin(a,b,c))
+print(getMax(a,b,c))
+print(getOrder(a,b,c))
+
+k = tuple(input())
+l = eval(input())
+print(k,l)

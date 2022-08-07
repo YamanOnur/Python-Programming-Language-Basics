@@ -1,0 +1,32 @@
+def is_time_valid(x):
+    lst = list()
+    for i in range(0,24):
+        for j in range(0,60):
+            if i>=10 and j>=10:lst.insert(0,".".join([str(i),str(j)]))
+            elif i<10 and j>=10:lst.insert(0,".".join(["0"+str(i),str(j)]))
+            elif i>=10 and j<10:lst.insert(0,".".join([str(i),"0"+str(j)]))
+            elif i<10 and j<10:lst.insert(0,".".join(["0"+str(i),"0"+str(j)]))
+    print(lst)
+    if lst.__contains__(x):
+        return True
+    else:
+        return False
+def is_time_valid_easy(x):
+    a = str(x)
+    r = a.split(".")
+    if int(r[0])<=24 and int(r[1])<=60:
+        return True
+    else:
+        return False
+def is_time_valid_cool(s):
+  l = s.split('.')
+  if(len(l)!=2):
+    return False
+  if(l[0]<"00" or l[0]>"23"):
+    return False
+  if(l[1]<"00" or l[1]>"59"):
+    return False
+  return True
+print(is_time_valid("22.50"))
+print(is_time_valid_easy("23.61"))
+print(is_time_valid_cool("23.01"))

@@ -1,0 +1,44 @@
+import numpy as np
+array1 = np.array([[1,2,3],[4,5,6]])
+print(type(array1),array1.shape,array1[1][2],array1[-1],array1[-1][0])
+array2 = np.zeros((4,4))
+array2[0][0]=array2[1][1]=array2[2][2]=array2[3][3]=1
+print(array2)
+arrayA= np.arange(1,17)
+arrayA=arrayA.reshape((4,4))
+print(arrayA)
+arrayB=np.arange(17,33).reshape((4,4))
+print(np.sqrt(arrayB-arrayA))
+is_element_contained = 4 in arrayA
+print(is_element_contained,4 in arrayB)
+print(arrayA<arrayB,arrayA>arrayB,arrayA==arrayB,arrayA==arrayB-arrayA,3*arrayA==arrayB)
+print(np.max(arrayA)==np.min(arrayB)-1,arrayA.mean(),arrayA.sum(),arrayA.std())
+print(arrayA.sum(axis=0),arrayA.sum(axis=1))
+try:r=arrayA.sum(axis=3)
+except:print("error")
+arrayC=np.hsplit(arrayB,2)
+arrayD=np.vsplit(arrayA,2)
+print(arrayC,type(arrayC))
+print(arrayD,type(arrayD))
+arrayC=np.hstack((arrayC[0],arrayC[1]))
+arrayD=np.vstack((arrayD[0],arrayD[1]))
+print(arrayC)
+print(arrayD)
+for a in arrayA:
+    print(a)
+for a in arrayA.flat:
+    print(a)
+E = [[[1,2],[3,4]],[[1,3],[4,6]]]
+arrayE = np.array(E)
+print(arrayE)
+for e in arrayE.flat:
+    print(e)
+for e in arrayE:
+    print(e)
+for e in arrayE:
+    for element in e:
+        print(element)
+for e in arrayE:
+    for element in e:
+        for inner_element in element:
+            print(inner_element)

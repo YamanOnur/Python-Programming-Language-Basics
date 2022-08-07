@@ -1,0 +1,22 @@
+l1 = eval(input())
+l2 = eval(input())
+def marble_game(x,y):
+    sumx = 0
+    sumy = 0
+    for i in range(0,len(x)):
+        if x[i] == "red":sumx = sumx+2
+        elif x[i] == "white":sumx = sumx+5
+        elif x[i] == "green":sumx = sumx+8
+        elif x[i] == "yellow":sumx = sumx+0
+        else:sumx = sumx+1
+    for i in range(0,len(y)):
+        if y[i] == "red":sumy = sumy+2
+        elif y[i] == "white":sumy = sumy+5
+        elif y[i] == "green":sumy = sumy+8
+        elif y[i] == "yellow":sumy = sumy+0
+        else:sumy = sumy+1
+    if sumx>sumy:
+        return x,sumx
+    else:
+        return y,sumy
+print(marble_game(l1,l2))

@@ -1,0 +1,48 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+def read_and_filter(filename, filter_limit):
+    df=pd.read_csv(filename)
+    df=df[df["Y"]<filter_limit]
+    return df
+def fix_deformation(dataframe):
+    dataframe["Y"]=dataframe["Y"]*2-5
+    rotation_angle=45*np.pi/180
+    lst_columnX=list(dataframe["X"])
+    lst_columnY=list(dataframe["Y"])
+    for i in range(len(lst_columnX)):
+        dataframe["X"][i]=float(lst_columnX[i])*np.cos(rotation_angle)-lst_columnY[i]*np.sin(rotation_angle)
+        dataframe["Y"][i]=float(lst_columnX[i])*np.sin(rotation_angle)+lst_columnY[i]*np.cos(rotation_angle)
+    dataframe["X"] = dataframe["X"] * 100 + 1500
+    dataframe["X"] = dataframe["X"].astype(int)
+    array=np.array(dataframe)
+    return array
+def fit_and_predict(dataset, day):
+    avg_x=np.mean(dataset[:,0])
+    avg_y=np.mean(dataset[:,1])
+    alpha,beta,sum_num,sum_denum=0,0,0,0
+    for row in dataset:
+        sum_num+=(row[0]-avg_x)*(row[1]-avg_y)
+    for row in dataset:
+        sum_denum+=(row[0]-avg_x)**2
+    beta=sum_num/sum_denum
+    alpha=avg_y-beta*avg_x
+    prediction=alpha+beta*day
+    return (alpha,beta,prediction)
+def plot(dataset, alpha, beta, prediction, day):
+    x = np.linspace(0,day)
+    plt.title("Exchange Rate")
+    plt.xlabel("Day")
+    plt.ylabel("USD")
+    #plt.plot(x,alpha+beta*x)
+    plt.plot(dataset[:, 0],alpha+beta*dataset[:,0])
+    plt.scatter(day,prediction)
+    plt.plot(dataset[:, 0],dataset[:, 1])
+    plt.show()
+def test():
+    data=read_and_filter(filename="Data.csv",filter_limit=8.5)
+    array=fix_deformation(data)
+    alpha,beta,prediction=fit_and_predict(array,1400)
+    plot(array,alpha,beta,prediction,1400)
+test()

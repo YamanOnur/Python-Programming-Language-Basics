@@ -1,0 +1,18 @@
+def readable(s):
+    lst = s.split(",")
+    for i in lst:
+        print(i.strip().lower())
+readable("LemOn,   gaRlic, PASta")
+
+-----------------------------------------
+
+a = input()
+def readable(x):
+    s = str(x)
+    lst = s.split()
+    for i in range(len(lst)):
+        lst[i] = lst[i].strip(",")
+        lst[i] = lst[i].strip('"')
+    result_str = "\n".join(lst)
+    return result_str.lower()
+print(readable(a))

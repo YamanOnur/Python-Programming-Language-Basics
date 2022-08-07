@@ -1,0 +1,36 @@
+def employee_info(str1,str2):
+    t_dic = dict()
+    t_list = list()
+    r_list = list()
+    str1_as_list = str1.split(",")
+    str2_as_list = str2.split(",")
+    for i in range(len(str1_as_list)):
+        t_list.insert(i,str1_as_list[i].split())
+        t_list[i][1] = str2_as_list[i]
+        t_list[i][0] = t_list[i][0].lower().capitalize()
+    for i in range(len(t_list)):
+        r_list.insert(i,{"Name":t_list[i][0],"Surname":t_list[i][1],
+                     "Age":int(t_list[i][2]),"Position":t_list[i][3],
+                     "Employment Time":int(t_list[i][4])})
+    return r_list
+
+-------------------------------------------------------------------------
+
+def employee_info(str1,str2):
+    t_dic = dict()
+    t_list = list()
+    r_list = list()
+    str1_as_list = str1.split(",")
+    str2_as_list = str2.split(",")
+    for i in range(len(str1_as_list)):
+        t_list.insert(i,str1_as_list[i].split())
+        t_list[i][1] = str2_as_list[i]
+        t_list[i][0] = t_list[i][0].lower().capitalize()
+    for i in range(len(t_list)):
+        r_list.insert(i,{"Name":t_list[i][0],"Surname":t_list[i][1],
+                     "Age":int(t_list[i][2]),"Position":t_list[i][3],
+                     "Employment Time":int(t_list[i][4])})
+    return r_list
+print(
+    employee_info("aRtHuR TRELAWNY 36 CEO 10,JoSiAh MARSTON 43 COO 12,jOHn MORGAN 33 Bookkeeper 8"
+                  ,"MORGAN,TRELAWNY,MARSTON"))

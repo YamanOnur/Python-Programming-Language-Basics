@@ -1,0 +1,17 @@
+def satisfactory(path):
+    file_input = open(path,"r")
+    contet = file_input.read()
+    file_input.close()
+    contet_list = contet.split("\n")
+    count = 0
+    for i in range(len(contet_list)):
+        each_student = contet_list[i].split()
+        quiz_one = int(each_student[0])
+        quiz_second = int(each_student[1])
+        mt_one = int(each_student[2])
+        mt_second = int(each_student[3])
+        final = int(each_student[4])
+        grade = 0.05*quiz_one+0.05*quiz_second+0.2*mt_one+0.2*mt_second+0.5*final
+        if grade >=55:
+            count+=1
+    return count

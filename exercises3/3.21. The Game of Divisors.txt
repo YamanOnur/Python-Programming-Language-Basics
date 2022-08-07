@@ -1,0 +1,15 @@
+def num_div(x):
+    c = 0
+    for i in range(1,x+1):
+        if x % i == 0:
+            c = c+1
+    return c
+def winner(n,o):
+    if num_div(n)>num_div(o):
+        return "Nazif"
+    elif num_div(n)<num_div(o):
+        return "Osman"
+    else:return "Draw"
+nazif = int(input())
+osman = int(input())
+print(winner(nazif,osman))

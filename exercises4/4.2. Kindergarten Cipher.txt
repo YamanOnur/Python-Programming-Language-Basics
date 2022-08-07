@@ -1,0 +1,19 @@
+x = eval(input())
+def decipher(x):
+    my_str = str(x[0])
+    my_str_no_space = my_str.split(" ")
+    my_lst = x[1]
+    result_str_as_list = list()
+    result_str = ""
+    for i in range(len(my_str_no_space)):
+        for j in range(len(my_str_no_space[i])):
+            if not my_str_no_space[i][j].isdigit():
+                result_str_as_list.append(my_str_no_space[i][j])
+            else:
+                for d in range(len(my_lst)):
+                    if my_str_no_space[i][j] == my_lst[d][0]:
+                        result_str_as_list.append(my_lst[d][1])
+        result_str_as_list.append(" ")
+    result_str = "".join(result_str_as_list)
+    return result_str
+print(decipher(x))

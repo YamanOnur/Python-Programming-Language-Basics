@@ -1,0 +1,11 @@
+def reverse_left(lst,num):
+    result_lst = list()
+    i=0
+    while lst[i]!=num:
+        result_lst.insert(i,lst[i])
+        i+=1
+    result_lst.reverse()
+    for j in range(i,len(lst)):
+        result_lst.append(lst[j])
+    return result_lst
+print(reverse_left([8,1,4,5,6,6,3,2], 6))

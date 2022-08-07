@@ -1,0 +1,16 @@
+from selenium import webdriver as wbd
+
+path="C:/Program Files (x86)/Google/Chrome/Application/chromedriver"
+url="https://horde.metu.edu.tr"
+username = "e200796"
+password = "oy19601"
+
+driver=wbd.Chrome("C:/chromedriver.exe")
+driver.get(url)
+driver.find_element_by_id("horde_user").send_keys(username)
+driver.find_element_by_id("horde_pass").send_keys(password)
+driver.find_element_by_id("login-button").click()
+driver.find_element_by_id("horde-search-input").send_keys("TOLGA KARAYAYLA")
+driver.find_element_by_id("horde-search-icon").click()
+content=driver.find_element_by_id("horde-logout").click()
+driver.close()

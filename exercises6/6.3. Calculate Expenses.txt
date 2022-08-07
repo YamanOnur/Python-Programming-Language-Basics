@@ -1,0 +1,17 @@
+def sum_prices(shopping_list):
+    lst = list(shopping_list)
+    total = 0
+    for l in lst:
+        total+=float(l[1])
+    return round(total,2)
+def calculate_expenses(shopping_lists):
+    for i in range(len(shopping_lists)):
+        try:
+            print(sum_prices(shopping_lists[i]))
+        except ValueError:
+            print("Incomplete")
+calculate_expenses([[("coffee", 2.5), ("milk", "dunno"), ("ice cream", 2.75)],
+                    [("candy", 2.99), ("chocolate", 3.99), ("tea", 3.5), ("coffee", 2.99), ("olive", 2.99)],
+                    [("tea", 3.99), ("coffee", 2.5), ("olive", 2.25), ("chocolate", 4.25), ("jambonbutter", 4.25),
+                     ("egg", 2.25)]])
+# ValueError

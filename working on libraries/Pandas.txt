@@ -1,0 +1,34 @@
+import pandas as pd
+
+lst = [('Jack', 40.2, 20), ('Amanda',30, 25), ('Mary',60.2, 19)]
+df = pd.DataFrame(data=lst,columns=["Name","Grade","Age"])
+print(df)
+print(df.iloc[1],"is person whose name is",
+      df["Name"][1],"and her grade:",df["Grade"][1],
+      "her age:",df["Age"][1])
+
+names = ['Jack', 'Amanda', 'Mary']
+lst = [(40.2, 20), (30, 25), (60.2, 19)]
+df = pd.DataFrame(data=lst,columns=["Grade","Age"],index=names)
+print(df)
+
+d = {'Grade': [40.2, 30, 60.2],
+      'Age': [20, 25, 19]}
+names = ['Jack', 'Amanda', 'Mary']
+df = pd.DataFrame(data=d,index=names)
+print(df)
+print(df["Grade"]["Jack"],df["Grade"][0])
+print(df.loc["Mary"],"Mary's Grade is",df.loc["Mary","Grade"])
+print(df["Grade"]["Mary"],"is equal to",df["Grade"][2],"is equal to",df.iloc[2,0])
+
+print(df.describe())
+print(df.sort_values(by="Grade"))
+print(df["Age"].max(),df["Age"].min())
+print(df["Grade"].nlargest(2))
+
+-----------------------------------
+
+import pandas as pd
+df=pd.read_csv("data.csv")
+print(df.dtypes)
+print(df["X"],df["Y"])

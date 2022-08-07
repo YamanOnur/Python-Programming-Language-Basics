@@ -1,0 +1,11 @@
+matrix = eval(input())
+sum = 0
+avg = 0
+numb = len(matrix) * len(matrix[0])
+for i in range(len(matrix)):
+    for j in range(len(matrix[0])):
+        if matrix[i][j] != "NaN":
+            sum += matrix[i][j]
+        else:
+            numb = numb - 1
+print(round(sum/numb,3))

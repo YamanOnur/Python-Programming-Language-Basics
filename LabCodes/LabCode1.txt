@@ -1,0 +1,5 @@
+t = float(input("Enter: "))
+v = 2.44
+g = 9.81
+h = 202 - (v + 0.5 * g * t**2)
+print(round(h, 2))

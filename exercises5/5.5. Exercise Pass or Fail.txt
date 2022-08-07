@@ -1,0 +1,16 @@
+def pass_or_fail(input_file,output_file):
+    file_input = open(input_file,"r")
+    content = file_input.read()
+    file_input.close()
+    list_students = content.split("\n")
+    file_output = open(output_file,"w")
+    for student in list_students:
+        grade = ((3*int(student.split(",")[1])+3*int(student.split(",")[2])+4*int(student.split(",")[3])))/10
+        if grade>=60:
+            line=student.split(",")[0]+",pass"
+            file_output.write(line+"\n")
+        else:
+            line=student.split(",")[0]+",fail"
+            file_output.write(line+"\n")
+
+pass_or_fail("input.txt","output.txt")

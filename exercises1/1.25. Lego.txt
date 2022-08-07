@@ -1,0 +1,14 @@
+lego = eval(input())
+s = int(input())
+e = int(input())
+lego[s-1:e] = [0] * (e-s+1) # notice the slicing and repetition operators
+print(lego)
+lego[s-1:e] = [0] * (s-e+1)
+print(lego)
+----------------------------------
+
+lego = eval(input())
+n1=int(input())
+n2=int(input())
+lego[n1-1:n2] = [0] * (n1-n2+1)
+print(lego)

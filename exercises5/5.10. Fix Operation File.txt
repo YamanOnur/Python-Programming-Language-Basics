@@ -1,0 +1,87 @@
+def fix_operation_file(input_file,output_file):
+    file_input=open(input_file,"r")
+    file_output = open(output_file, "w")
+    count=0
+    operation_str = ""
+    result_list=[]
+    for line in file_input.readlines():
+        line = line.lstrip(" ").rstrip("\n")
+        operation_str+=line
+        count+=1
+        if count%3==0:
+            operation_list=[]
+            file_output.write(operation_str+"\n")
+            result_list.append(eval(operation_str))
+            operation_str=""
+    file_input.close()
+    file_output.close()
+    return result_list
+print(fix_operation_file("input_operation_file.txt","output_operation_file.txt"))
+
+-------------------------------------------------------------------------
+
+def fix_operation_file(input_file,output_file):
+    file_input=open(input_file,"r")
+    file_output = open(output_file, "w")
+    count=0
+    operation_list=[]
+    operation_str = ""
+    result_list=[]
+    for line in file_input.readlines():
+        line = line.lstrip(" ").rstrip("\n")
+        operation_list+=line
+        count+=1
+        if count%3==0:
+            operation_str="".join(operation_list)
+            operation_list=[]
+            file_output.write(operation_str+"\n")
+            result_list.append(eval(operation_str))
+    file_input.close()
+    file_output.close()
+    return result_list
+print(fix_operation_file("input_operation_file.txt","output_operation_file.txt"))
+
+-------------------------------------------------------------------------
+
+def fix_operation_file(input_file,output_file):
+    file_input = open(input_file,"r")
+    count = 0
+    operation_list=[]
+    each_operation = []
+    for line in file_input.readlines():
+        line = line.rstrip("\n").lstrip(" ")
+        if count%3==0:
+            each_operation=[]
+            each_operation.append(line.lstrip(" "))
+            count+=1
+        else:
+            each_operation.append(line.lstrip(" "))
+            count+=1
+        if count%3==0 and count>0:
+            operation_list.append(str(each_operation))
+    file_input.close()
+    file_output = open(output_file,"w")
+    for i in range(len(operation_list)):
+        strs = operation_list[i].rstrip("]").lstrip("[")
+        strs = "".join("".join(strs.split("'")).split(","))
+        file_output.write(strs+"\n")
+    file_output.close()
+    file_input = open(output_file,"r")
+    content = file_input.read()
+    file_input.close()
+    content_as_list = content.rstrip("\n").split("\n")
+    print(content_as_list)
+    result_list=[]
+    for operation in content_as_list:
+        operation = operation.split()
+        if operation[1]=="+":
+            result_list.append(int(operation[0])+int(operation[2]))
+        elif operation[1]=="-":
+            result_list.append(int(operation[0])-int(operation[2]))
+        elif operation[1]=="*":
+            result_list.append(int(operation[0])*int(operation[2]))
+        elif operation[1]=="/":
+            result_list.append(int(operation[0])/int(operation[2]))
+        else:print("error")
+    return result_list
+print(fix_operation_file("input_operation_file.txt","output_operation_file.txt"))

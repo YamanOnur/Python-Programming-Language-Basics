@@ -1,0 +1,15 @@
+t = eval(input())
+c,m = eval(input())
+newT = list(t)
+newT[c]=m
+newTuple = tuple(newT)
+print(newTuple)
+
+------------------------------------
+
+t = tuple(input())
+c = list(input())
+newT = list(t)
+newT[int(c[0])]=str(c[1])
+newTuple = tuple(newT)
+print(newTuple)

@@ -1,0 +1,15 @@
+def memento(file_name):
+    try:
+        file = open(file_name,"r")
+        content = file.read()
+        password = int(content)
+        print("Finally you found correrct file.Password:",password)
+    except FileNotFoundError:
+        print("Try again")
+    except ValueError:
+        print("Wrong file")
+
+memento("input1.txt")
+memento("input_operation_file.txt")
+memento("input.txt")
+memento("sample_memento.txt")

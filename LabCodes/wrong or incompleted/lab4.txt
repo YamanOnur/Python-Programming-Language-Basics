@@ -1,0 +1,23 @@
+lst = eval(input())
+def postfix(lst):
+    number_ints = len(lst) // 2 + 1
+    number_ops = len(lst)
+    if lst[number_ints] == "+":
+        sum = lst[0] + lst[1]
+        lst.remove(1)
+        lst[0] = sum
+        number_ints = number_ints-1
+    elif lst[number_ints] == "*":
+        mult = lst[0] * lst[1]
+        lst.remove(1)
+        lst[0] = mult
+        number_ints = number_ints - 1
+    elif lst[number_ints] == "%":
+        mod = lst[0] % lst[1]
+        lst.remove(1)
+        lst[0] = mod
+        number_ints = number_ints - 1
+    if number_ints == 1 and number_ops == 0:
+        return lst
+    else:
+        return postfix(lst)

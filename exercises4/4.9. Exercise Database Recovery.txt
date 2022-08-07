@@ -1,0 +1,9 @@
+def reinstall(s):
+    lst = s.split("=")
+    dic = dict()
+    for i in lst:
+        key = i.split(":")[0].strip("|")
+        value = int(i.split(":")[1].strip("|"))
+        dic.update({key:value})
+    return dic
+print(reinstall("| ahmet : 16 |=| Mehmet : 19 |=| selin : 32 |=| PINAR : 8 |"))

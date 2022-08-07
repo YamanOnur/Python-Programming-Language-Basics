@@ -1,0 +1,7 @@
+def single_sorted_copy(given_list):
+    for item in given_list:
+        while given_list.count(item)>1:
+            given_list.remove(item)
+    given_list.sort()
+    return given_list
+print(single_sorted_copy([3, 3, 2, 2, 1, 1]))

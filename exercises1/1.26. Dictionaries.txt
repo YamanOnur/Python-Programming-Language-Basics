@@ -1,0 +1,17 @@
+id1 = int(input())
+mt1 = float(input())
+f1 = float(input())
+id2 = int(input())
+mt2 = float(input())
+f2 = float(input())
+id3 = int(input())
+mt3 = float(input())
+f3 = float(input())
+students = {id1:(mt1,f1),id2:(mt2,f2),id3:(mt3,f3)}
+s = int(input())
+def getAvg(grades):
+    mt = grades[0]
+    fi = grades[1]
+    return (mt+fi)/2
+avg = getAvg(students[s])
+print("The student whose id is",s,"has average of ",avg)

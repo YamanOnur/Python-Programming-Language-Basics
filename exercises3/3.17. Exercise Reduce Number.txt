@@ -1,0 +1,25 @@
+def reduce_number(x= input()):
+    sumx = 0
+    strx = str(x)
+    for i in range(0,len(strx)):
+        sumx = sumx+eval(strx[i])
+    strx = str(sumx)
+    if len(strx) == 1:
+        return sumx
+    else:
+        return reduce_number(sumx)
+print(reduce_number())
+
+--------------------------------------------
+
+def reduce_number(x):
+    sumx = 0
+    strx = str(x)
+    for i in range(0,len(strx)):
+        sumx = sumx+eval(strx[i])
+    strx = str(sumx)
+    if len(strx) == 1:
+        return sumx
+    else:
+        return reduce_number(sumx)
+print(reduce_number(123456))

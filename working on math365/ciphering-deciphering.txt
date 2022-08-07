@@ -1,0 +1,55 @@
+from math import gcd
+from math import fmod
+
+my_dic={}
+for i in range(26):
+    if i<10:
+        my_dic.update({chr(i+97):"0"+str(i)})
+    else:
+        my_dic.update({chr(i+97):i})
+my_dic.update({" ":26})
+
+def find_phi(x):
+    count=0
+    for i in range(x):
+        if gcd(i,x)==1:
+            count+=1
+    return count
+
+def cipher(text,n,k):
+    text=str(text)
+    plainText_numbers=[]
+    for i in range(len(text)):
+        plainText_numbers.append(my_dic[text[i]])
+    plainText_numbers_with4blocks=[]
+    i=0
+    while i<len(plainText_numbers)-1:
+        get_two=str(plainText_numbers[i])+str(plainText_numbers[i+1])
+        plainText_numbers_with4blocks.append(get_two)
+        get_two=""
+        i+=2
+    cipher_text_numbers=[]
+    for i in range(len(plainText_numbers_with4blocks)):
+        value=str(int(fmod(int(plainText_numbers_with4blocks[i])**int(k),n)))
+        if len(value)==4:
+            cipher_text_numbers.append(value)
+        elif len(value)==3:
+            cipher_text_numbers.append("0"+value)
+        elif len(value) == 2:
+            cipher_text_numbers.append("00" + value)
+        elif len(value) == 1:
+            cipher_text_numbers.append("000" + value)
+    return cipher_text_numbers
+print(cipher("no way today",2701,47))
+def encrypted_text(ciphered_numbers):
+    lst = list(ciphered_numbers)
+    str_form = "".join(lst)
+    r_lst=[]
+    i=0
+    while i<len(str_form):
+        nb=str(str_form[i]+str_form[i+1])
+        r_lst.append(chr(97+int(fmod(int(nb),26))))
+        i+=2
+    str_form_result = "".join(r_lst)
+    return str_form_result
+print(encrypted_text(cipher("no way today",2701,47)))

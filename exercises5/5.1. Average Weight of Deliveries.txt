@@ -1,0 +1,44 @@
+def average_weight(file_name):
+    f = open(file_name,"r")
+    min_weigth=45
+    max_weigth=120
+    list_in_range = []
+    for line in f.readlines():
+        all_weigths = list(map(int,list(line.split())))
+        filtered_list = list(filter(lambda x : x>=min_weigth and x<=max_weigth,all_weigths))
+        list_in_range+=filtered_list
+    f.close()
+    sum = 0
+    counter = 0
+    for w in list_in_range:
+        sum+=w
+        counter+=1
+    if counter:
+        return sum/counter
+    else:return 0
+
+print(average_weight("input.txt"))
+
+----------------------------------------------------
+
+def average_weight(file_name):
+    f = open(file_name,"w")
+    f.write("61 49 92 159 212 257 107 320\n"
+            " 237 282 354 240 120 330 243\n"
+            " 95 113 300 114 271\n"
+            " 191 303 396 117 175 350")
+    f.close()
+    fp = open(file_name,"r")
+    consent = fp.read()
+    fp.close()
+    consent_as_list = consent.split(" ")
+    sum = 0
+    counter = 0
+    for i in range(len(consent_as_list)):
+        if 45 <= int(consent_as_list[i]) <= 125:
+            sum += int(consent_as_list[i])
+            counter += 1
+    if counter:
+        return round(sum/counter,5)
+    else:return 0
+print(average_weight("input.txt"))

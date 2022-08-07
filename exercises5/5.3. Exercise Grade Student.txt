@@ -1,0 +1,32 @@
+file_answer_key = open("answer_key.txt","w")
+file_answer_key.write("1 A 5\n"
+               "2 C 15\n"
+               "3 A 10\n"
+               "4 B 5\n"
+               "5 D 5\n"
+               "6 C 15\n"
+               "7 C 15\n"
+               "8 A 10\n"
+               "9 D 15\n"
+               "10 C 5")
+file_answer_key.close()
+file_student = open("student.txt","w")
+file_student.write("1 A\n2 C\n3 D\n4 A\n5 C\n6 C\n7 D\n8 A\n9 D\n10 C")
+file_student.close()
+
+def grade_student(answer_key, student):
+    file_answer_key = open(answer_key,"r")
+    content_answer_key = file_answer_key.read()
+    file_answer_key.close()
+    file_student = open(student,"r")
+    content_student = file_student.read()
+    file_student.close()
+    point = 0
+    for c in range(10):
+        each_key = content_answer_key.split("\n")[c].split()
+        each_answer = content_student.split("\n")[c].split()
+        if each_key[1] == each_answer[1]:
+            point+=int(each_key[2])
+    return point
+
+print(grade_student("answer_key.txt","student.txt"))

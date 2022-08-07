@@ -1,0 +1,30 @@
+file_key = open("key.txt","w")
+file_key.write("A B A B C")
+file_key.close()
+file_response = open("responses.txt","w")
+file_response.write("Jenna A A A A A\nTracy D E D E A\nLiz A B A B E\nLutz A B A D D\nToofer E B A B C\nFrank E E E E E")
+file_response.close()
+
+def evaluate_attendees(key_txt, responses_txt):
+    key_file = open(key_txt,"r")
+    key_content = key_file.read()
+    key_file.close()
+    responses_file = open(responses_txt,"r")
+    responses_content = responses_file.read()
+    responses_file.close()
+    response_list = responses_content.split("\n")
+    key_list = key_content.split()
+    result_list = []
+    for i in range(len(response_list)):
+        control_list = response_list[i].split()
+        person = control_list.pop(0)
+        point = 0
+        for j in range(len(key_list)):
+            if key_list[j] == control_list[j]:
+                point+=1
+            else:
+                point-=0.25
+        result_list.append((person,point))
+    result_list.sort(key=lambda tup:tup[1],reverse=True)
+    return result_list
+print(evaluate_attendees("key.txt","responses.txt"))

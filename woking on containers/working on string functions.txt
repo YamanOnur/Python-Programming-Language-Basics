@@ -1,0 +1,55 @@
+my_string = "onur Yaman"
+print(my_string)
+print(my_string.capitalize())
+my_string = "onur çok yaman"
+my_sub_str = "çok"
+print(my_string.count(my_sub_str,0,len(my_string)))
+my_string = my_string + 2*"\n" + my_string
+print(my_string)
+print(my_string.count(my_sub_str,0,len(my_string)))
+print(my_string.find(my_sub_str))
+print(my_string.find("onur"))
+print(my_string.isalnum())
+my_string = "onur123"
+print(my_string.isalnum())
+my_string = my_string[len(my_string):3:-1]
+print(my_string)
+print(my_string.isdigit())
+my_string = "ONUR YAMAN"
+print(my_string.isupper())
+my_string = "Onur Yaman"
+print(my_string.islower())
+my_string = "onur\n\tyaman"
+print(len(my_string))
+print(my_string)
+print(my_string.islower())
+print(my_string.isspace())
+my_string = "#".join(["onur","yaman"])
+print(my_string)
+print(my_string.rjust(15,"#"))
+print(my_string.ljust(15,"#"))
+print((my_string.center(16,"!")))
+print(my_string.upper())
+my_string = " \n Onur çok Yaman \n "
+my_string = my_string.lower()
+print(my_string.rstrip())
+print(my_string.strip())
+print(my_string.lstrip())
+my_string = "--.-Onur Yaman-.--".strip("--")
+print(my_string.swapcase())
+my_string = "onur yaman onur yaman1 onur yaman"
+print(my_string.replace("yaman","onur"))
+print(my_string.replace("yaman","onur",1))
+print(my_string.replace("yaman","onur",-1))
+print(my_string.startswith("onur",0))
+print(my_string.startswith("onur",1))
+print(my_string.startswith("yaman",5))
+print(my_string.startswith("onur",0,4))
+print(my_string.split(" "))
+print(my_string.partition(" "))
+my_string = "onur\nyaman \t onur"
+print(my_string.splitlines())
+print(my_string.splitlines(True))
+print(my_string.splitlines(False))
+my_string = "onur\nyaman\nonur\nyaman"
+print(my_string.splitlines())

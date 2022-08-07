@@ -1,0 +1,11 @@
+def find_zero(integers):
+    list_int = list(integers)
+    for i in range(len(list_int)):
+        try:
+            a = 1000/int(list_int[i])
+        except ZeroDivisionError:
+            return i
+    return -1
+print(find_zero([1,2,3,4,5]))
+print(find_zero([123,35,0,46,2567]))
+print(find_zero([0,1,0,1,1,0]))

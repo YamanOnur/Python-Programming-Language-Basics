@@ -1,0 +1,10 @@
+x = int(input())
+y = int(input())
+v = int(input())
+c = 0
+for i in range(1,v//max(x,y)+1):
+    if (v-i*max(x,y)) % y == 0:
+        c = c+1
+        break
+if c: print("Yes")
+else: print("No")

@@ -1,0 +1,82 @@
+x = [0,0,0,0,0]
+for i in range(0,5):
+    x[i]=int(input())
+def discardMin(t):
+    for i in range(0,len(t)):
+        c=0
+        for j in range(i+1,len(t)):
+            if t[i]<=t[j]:
+                c=c+1
+        if c==len(t)-1-i:
+            t.remove(t[i])
+            break
+    if len(t)>3:
+        return discardMin(t)
+    else:
+        return t
+sumy=0
+b = discardMin(x)
+for i in range(0,len(b)):
+    sumy=sumy+b[i]
+print(round(sumy/len(b),2))
+print(b)
+
+-----------------------------------------------------
+
+x = [0,0,0,0,0]
+for i in range(0,5):
+    x[i]=int(input())
+def discardMin(t):
+    for i in range(0,len(t)):
+        c=0
+        for j in range(i+1,len(t)):
+            if t[i]<=t[j]:
+                c=c+1
+        if c==len(t)-1-i:
+            t.remove(t[i])
+            break
+        return t
+sumy=0
+b = discardMin(x)
+for i in range(0,len(b)):
+    sumy=sumy+b[i]
+print(round(sumy/8,2))
+print(b)
+
+-----------------------------------------------------
+
+x = [0,0,0,0,0]
+for i in range(0,5):
+    x[i]=int(input())
+t = x
+def makeMinZero(k):
+    if k[0]<=k[1] and k[0]<=k[2] and k[0]<=k[3] and k[0]<=k[4]:
+        k[0]=0
+    elif k[1]<=k[0] and k[1]<=k[2] and k[1]<=k[3] and k[1]<=k[4]:
+        k[1]=0
+    elif k[2]<=k[0] and k[2]<=k[1] and k[2]<=k[3] and k[2]<=k[4]:
+        k[2]=0
+    elif k[3]<=k[0] and k[3]<=k[1] and k[3]<=k[2] and k[3]<=k[4]:
+        k[3]=0
+    else:
+        k[4]=0
+    return k
+def discardMin(t):
+    for i in range(0,len(t)):
+        c=0
+        for j in range(i+1,len(t)):
+            if t[i]<=t[j]:
+                c=c+1
+        if c==len(t)-1:
+            t.remove(x[i])
+    return t
+sumx=0
+sumy=0
+a = makeMinZero(x)
+b = discardMin(t)
+for i in range(0,len(a)):
+    sumx=sumx+a[i]
+print(round(sumx/8,2))
+for i in range(0,4):
+    sumy=sumy+b[i]
+print(round(sumy/8,2))

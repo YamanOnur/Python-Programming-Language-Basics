@@ -1,0 +1,20 @@
+a = eval(input())
+def maximum_occurence(x):
+    result_dic = dict()
+    final_dic = dict()
+    lst = list()
+    result = 0
+    for i in range(len(x)):
+        if not result_dic.__contains__(x[i]):
+            result_dic.update({x[i]:1})
+            lst.insert(0,x[i])
+        else:
+            result_dic[x[i]]+=1
+    l=0
+    while l<=len(result_dic)-2:
+        if result_dic[lst[l]]<result_dic[lst[l+1]]:
+            result = result_dic[lst[l+1]]
+            final_dic = {lst[l+1]:result_dic[lst[l+1]]}
+        l+=1
+    return result,final_dic,final_dic.keys()
+print(maximum_occurence(a))

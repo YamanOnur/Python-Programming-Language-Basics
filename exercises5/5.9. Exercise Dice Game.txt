@@ -1,0 +1,34 @@
+def dice_game(input):
+    file_input = open(input,"r")
+    names = file_input.readline().split()
+    dic_ponts = dict()
+    for name in names:
+        dic_ponts.update({name:0})
+    for line in file_input.readlines():
+        line = line.rstrip("\n")
+        each_round = list(map(int,line.split()))
+        each_round_withNames = []
+        count=0
+        for i in range(len(each_round)):
+            each_round_withNames.append([names[i],each_round[i]])
+            if each_round[i]==max(each_round):
+                count+=1
+        for i in range(len(each_round_withNames)):
+            if each_round_withNames[i][1]==max(each_round):
+                dic_ponts[each_round_withNames[i][0]]+=1/count
+    file_input.close()
+    lst = list(dic_ponts.items())
+    result_list=[]
+    for i in range(len(lst)):
+        result_list.append([lst[i][0],lst[i][1]])
+    filtered_result_list = list(filter(lambda x:x[1]==max(dic_ponts.values()),result_list))
+    final_list = []
+    for i in range(len(filtered_result_list)):
+        if i!=len(filtered_result_list)-1:final_list.append(filtered_result_list[i][0])
+        else:
+            final_list.append(filtered_result_list[i][0])
+            final_list.append(str(round(float(filtered_result_list[i][1]),2)))
+    result_as_str = ",".join(final_list)
+    result_as_str = result_as_str[:-5:]+" "+result_as_str[len(result_as_str)-4::]
+    return result_as_str
+print(dice_game("inputDiceGame.txt"))

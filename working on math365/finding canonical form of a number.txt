@@ -1,0 +1,23 @@
+def show_prime_multipliers(x):
+    list_primes_lessThan = list()
+    list_primes_divisor = list()
+    result_list = list()
+    for i in range(1,x+1):
+        counter = 0
+        for j in range(1,i+1):
+            if i % j == 0:
+                counter+=1
+        if counter==2:
+            list_primes_lessThan.append(i)
+    for i in range(len(list_primes_lessThan)):
+        if x % list_primes_lessThan[i]==0:
+            list_primes_divisor.append(list_primes_lessThan[i])
+    for i in range(len(list_primes_divisor)):
+        power = 0
+        while x % list_primes_divisor[i] == 0:
+            x = x/list_primes_divisor[i]
+            power+=1
+        result_list.append((str(list_primes_divisor[i])+"^"+str(power)))
+    result = " * ".join(result_list)
+    return result
+print(show_prime_multipliers(5050))

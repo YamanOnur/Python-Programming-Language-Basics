@@ -1,0 +1,15 @@
+k = int(input())
+l = int(input())
+m = int(input())
+def calculate(a,b,d):
+    if d%(100*(a//b))==0:
+        x = d//(100*(a//b))
+        print(x-1)
+        y = a%(((x+1)*100*(a//b)-d)/100)*b
+        print(y)
+    else:
+        x=d//(100*(a//b))
+        print((x))
+        y=(((x+1)*100*(a/b)-d)/100)*b
+        print(y)
+calculate(k,l,m)

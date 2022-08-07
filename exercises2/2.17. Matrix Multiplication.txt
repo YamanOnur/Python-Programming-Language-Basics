@@ -1,0 +1,12 @@
+m1 = eval(input())
+m2 = eval(input())
+r = list()
+r = [0]*len(m1)
+for i in range(0,len(m1)):
+    r[i] = [0]*len(m2[0])
+print(r)
+for i in range(0,len(m1)):
+    for j in range(len(m2[0])):
+        for k in range(0,len(m1[0])):
+            r[i][j] += m1[i][k] * m2[k][j]
+print(r)

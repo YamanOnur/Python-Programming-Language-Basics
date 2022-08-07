@@ -1,0 +1,28 @@
+x = int(input())
+y = int(input())
+v = int(input())
+def fin_max(a,b):
+    if a >= b:
+        return a
+    else:
+        return b
+def fin_min(a,b):
+    if a >= b:
+        return b
+    else:
+        return a
+def find_gcd(a,b):
+    r = 0
+    r = fin_max(a,b) % fin_min(a,b)
+    if r == 0:
+        return fin_min(a,b)
+    elif r == 1:
+        return r
+    else:
+        return find_gcd(fin_min(a,b),r)
+def is_built(a,b,w):
+    if w % find_gcd(a,b) == 0:
+        print("Yes")
+    else:
+        print("No")
+is_built(x,y,v)
